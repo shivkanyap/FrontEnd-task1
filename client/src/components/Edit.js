@@ -4,6 +4,8 @@ import axios from 'axios'
 
 
 const Edit=(props)=>{
+   
+    
   const [data,setdata]=useState([])
   const  [num,setnum]=useState('');
   const [title,settitle]=useState('')
@@ -13,6 +15,7 @@ const Edit=(props)=>{
 
 
   useEffect(()=>{
+    //   debugger;
     const id=props.match.params.id
     console.log(id,'in id')
     axios.get(`http://localhost:3005/data/${id}`,{
@@ -46,7 +49,8 @@ const Edit=(props)=>{
    })
    .then(form=>{
        console.log('here')
-       props.history.push('/data/:id')
+       props.history.push('/id')
+      //  res.send(form)
    })
 }
     return(

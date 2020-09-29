@@ -2,7 +2,7 @@ import React from 'react'
 import Form from './components/skills'
 import Add from './components/Add'
 import Edit from './components/Edit'
-import {BrowserRouter, Route,Link,Switch} from 'react-router-dom'
+import {BrowserRouter, Route,Switch} from 'react-router-dom'
 
 const App=()=>{
   return(

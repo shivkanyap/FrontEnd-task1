@@ -1,6 +1,6 @@
 
 import React,{useState} from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios'
 const Add=(props)=>{
   const [data,setdata]=useState([])
