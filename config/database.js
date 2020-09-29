@@ -7,7 +7,7 @@ mongoose.connect(db,{useNewUrlParser: true,useCreateIndex:true,useUnifiedTopolog
     .then(()=>{
         console.log('connected to db')
     })
-    .catch(()=>{
+    .catch((err)=>{
         console.log('error connecting to db',err)
     })
 module.exports={mongoose}

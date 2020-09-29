@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from './components/skills'
 import Add from './components/Add'
+import Edit from './components/Edit'
 import {BrowserRouter, Route,Link,Switch} from 'react-router-dom'
 
 const App=()=>{
@@ -11,6 +12,7 @@ const App=()=>{
      
       <Switch>
         <Route path="/add" component={Add}></Route>
+        <Route path="/edit/:id" component={Edit}></Route>
         <Form/>
       </Switch>
      
