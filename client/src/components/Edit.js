@@ -1,4 +1,3 @@
-
 import React,{useState,useEffect} from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios'
@@ -40,7 +39,7 @@ const Edit=(props)=>{
 
       }
     
-   axios.put(`/edit/${id}`,formData,{
+   axios.put(`/edit/${data._id}`,formData,{
     headers:{
         'x-auth':localStorage.getItem('userAuthToken')
     }

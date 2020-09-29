@@ -1,6 +1,7 @@
 import axios from 'axios';
 import index from '../index.css';
 import Add from './Add';
+import Edit from './Edit'
 import React, { Component, useState,useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -94,10 +95,13 @@ const Form =(props) => {
   
   const handleDelete=()=>{
       console.log('delete')
-      console.log(props)
-    //   const id=props.match.params.id
-    //   console.log(id)
-    //   axios.delete(`http://localhost:3005/data/delete/${id}`)
+      const id=props.match.params.id
+    //   console.lo
+      axios.delete(`http://localhost:3005/data/delete/${id}`)
+
+  }
+  const handleEdit=()=>{
+      
 
   }
 
@@ -105,7 +109,7 @@ const Form =(props) => {
         console.log('hello');
         return (
             <div>  
-                <h1>hello</h1>
+                <h1>hello</h1>  
             </div>
         );
     };
@@ -113,57 +117,65 @@ const Form =(props) => {
     const Table = () => {
         return (
         <div>
-            <button
-            type='button'
-            className='btn btn-primary'
-            data-toggle='popover'
-            color='blue'
-            onClick={handleOpen}
-            >
-            <i className='fa fa-plus' aria-hidden='true'></i>Add new Record
-            </button>
-            <button className='btn btn-primary'>
-            <i className='fa fa-search' aria-hidden='true'></i>Filter
-            </button>
-            <button type='button' className='btn btn-primary'>
-            Primary
-            </button>
-            {showForm ? handleShowForm : null}
-            <table className='table'>
-            <thead>
-                <tr className='th'>
-                <th scope='col'>#</th>
-                <th scope='col'>Title</th>
-                <th scope='col'>Author</th>
-                <th scope='col'>Publisher</th>
-                <th scope='col'>Stock</th>
-                <th scope='col'>gg</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr scope='row' >
-                {data.map(da => {
-                    return (
-                    <>
-                        <td key={da._id}>{da.num}</td>
-                        <td>{da.title}</td>
-                        <td>{da.author}</td>
-                        <td>{da.publisher}</td>
-                        <td>{da.stock}</td>
-                        <td>
-                        <button className='btn btn-warning'  onClick={handleOpen}>
-                            <i className='fa fa-pencil' aria-hidden='true'></i>Edit
-                        </button>
-                        <button className='btn btn-danger' onClick={handleDelete}>
-                            <i className='fa fa-trash' aria-hidden='true'></i>Delete
-                        </button>
-                        </td>
-                    </>
-                    );
-                })}
-                </tr>
-            </tbody>
-            </table>
+            <div>
+                <button
+                type='button'
+                className='btn btn-primary'
+                data-toggle='popover'
+                color='blue'
+                onClick={handleOpen}
+                >
+                <i className='fa fa-plus' aria-hidden='true'></i>Add new Record
+                </button>
+                <button className='btn btn-primary'>
+                <i className='fa fa-search' aria-hidden='true'></i>Filter
+                </button>
+                <button type='button' className= 'btn btn-primary'>
+                Primary
+                </button>
+                {showForm ? handleShowForm : null}
+            </div>
+            <div>
+                <table className="table">
+                <thead>
+                    <tr className="th">
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Stock</th>
+                    <th>gg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className="trbody">
+                    {data.map(da => {
+                        return (
+                        <>
+                            <tr scope="row" key={da._id}>
+                            <td >{da.num}</td>
+                            <td>{da.title}</td>
+                            <td>{da.author}</td>
+                            <td>{da.publisher}</td>
+                            <td>{da.stock}</td>
+                            <td>
+                            <button className='btn btn-warning'  onClick={handleOpen}>
+                                <i className='fa fa-pencil' aria-hidden='true'></i>Edit
+                            </button>
+                            </td>
+                            <td>
+                            <button className='btn btn-danger' onClick={handleDelete}>
+                                <i className='fa fa-trash' aria-hidden='true'></i>Delete
+                            </button>
+                            </td>
+                            </tr>
+                        </>
+                        );
+                    })}
+                    </tr>
+                </tbody>
+                </table>
+            </div>
         </div>
         );
     };
